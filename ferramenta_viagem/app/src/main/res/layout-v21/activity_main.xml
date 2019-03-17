@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarStyle="outsideOverlay">
+    <!--tools:context=".MainActivity"> -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:onClick="hideKeyboard"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_default">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textCurrencySymbolFrom"
+                style="@style/AppThemeDark.Currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/imageSwap"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/text_dollar_symbol"
+                tools:fontFamily="@font/roboto_thin"
+                tools:ignore="RtlHardcoded" />
+
+            <ImageView
+                android:id="@+id/imageSwap"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_default"
+                android:background="@drawable/ic_swap_horiz_black_24dp"
+                android:contentDescription="@string/image_swap_content_description" />
+
+            <TextView
+                android:id="@+id/textCurrencySymbolTo"
+                style="@style/AppThemeDark.Currency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imageSwap"
+                android:text="@string/text_real_symbol"
+                tools:fontFamily="@font/roboto_thin"
+                tools:ignore="RtlHardcoded" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginRight="@dimen/margin_middle"
+                android:layout_weight="1"
+                android:onClick="hideKeyboard"
+                app:labelText="@string/exchange_rate"
+                tools:ignore="RtlHardcoded">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/editCurrencyExchange"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="hideKeyboard"
+                    android:selectAllOnFocus="true"
+                    android:text=""
+                    app:prefix="R$ " />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_middle"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_weight="1"
+                app:isResponsiveIconColor="true"
+                app:labelText="Valor"
+                tools:ignore="RtlHardcoded">
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/editAmount"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:selectAllOnFocus="true"
+                    app:prefix="U$ " />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:background="@drawable/bg_default"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_middle"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/LabelPayment"
+                    style="@style/AppThemeDark.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_payment_type"
+                    tools:fontFamily="@font/roboto_medium" />
+
+                <Button
+                    android:id="@+id/buttonInfoPayment"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="@dimen/margin_middle"
+                    android:background="@drawable/bg_info"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/antic_slab"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_info_text"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/font_small_size" />
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioPaymentType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_middle">
+
+                <RadioButton
+                    android:id="@+id/money"
+                    style="@style/AppThemeDark.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
+                    android:onClick="hideKeyboard"
+                    android:text="@string/radio_button_money" />
+
+                <RadioButton
+                    android:id="@+id/card"
+                    style="@style/AppThemeDark.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
+                    android:onClick="hideKeyboard"
+                    android:text="@string/radio_button_credit" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:background="@drawable/bg_default"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/margin_middle"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/AppThemeDark.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_declaration_situation"
+                tools:fontFamily="@font/roboto_medium" />
+
+            <RadioGroup
+                android:id="@+id/radioSituationType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_middle">
+
+                <RadioButton
+                    android:id="@+id/radioDeclared"
+                    style="@style/AppThemeDark.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
+                    android:onClick="hideKeyboard"
+                    android:text="@string/radio_button_declaration"
+                    tools:fontFamily="@font/roboto_thin" />
+
+                <RadioButton
+                    android:id="@+id/radio_nDeclared"
+                    style="@style/AppThemeDark.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
+                    android:onClick="hideKeyboard"
+                    android:text="@string/radio_button_not_declared" />
+
+                <RadioButton
+                    android:id="@+id/radio_fined"
+                    style="@style/AppThemeDark.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
+                    android:onClick="hideKeyboard"
+                    android:text="@string/radio_button_fined" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_middle"
+                android:layout_weight="1"
+                android:background="@drawable/bg_default"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textAmountFromLabel"
+                    style="@style/AppThemeDark.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_middle"
+                    android:layout_marginBottom="@dimen/margin_middle"
+                    android:text="@string/text_total_foreign"
+                    tools:fontFamily="@font/roboto_medium" />
+
+                <TextView
+                    android:id="@+id/textAmountFromValue"
+                    style="@style/AppThemeDark.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_default_foreign_value"
+                    tools:fontFamily="@font/roboto_thin" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_middle"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_weight="1"
+                android:background="@drawable/bg_default"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/AppThemeDark.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_middle"
+                    android:layout_marginBottom="@dimen/margin_middle"
+                    android:text="@string/text_total_real"
+                    tools:fontFamily="@font/roboto_medium" />
+
+                <TextView
+                    android:id="@+id/textAmountToValue"
+                    style="@style/AppThemeDark.Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_default_value_total_real"
+                    tools:fontFamily="@font/roboto_thin" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonGoToDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginTop="@dimen/margin_default"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/button_summary"
+                android:textSize="@dimen/font_size_xlarge" />
+
+            <Button
+                android:id="@+id/buttonCleanForm"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginTop="@dimen/margin_default"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/text_button_clear"
+                android:textSize="@dimen/font_size_xlarge" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
