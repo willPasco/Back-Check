@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+ferramenta_viagem/.idea
+ferramenta_viagem/app/build
+ferramenta_viagem/local.properties
